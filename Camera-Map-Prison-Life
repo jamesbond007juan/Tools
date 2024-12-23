@@ -1,0 +1,49 @@
+--Camera Map
+
+local part = Instance.new("Part",workspace)
+part.Size = Vector3.new(1,1,1)
+part.Transparency = 1
+part.Position = Vector3.new(805, 97, 2389)
+part.Locked = true
+part.Anchored = true
+part.Name = "LookatCameraPart"
+
+local camera = workspace.CurrentCamera
+
+local MinusPress =  Enum.KeyCode.Minus
+local EqualPress = Enum.KeyCode.Equals
+local UserInputService = game:GetService("UserInputService")
+
+function defaultcamera()
+	camera.CameraType = Enum.CameraType.Custom
+	camera.CameraSubject = game.Players.LocalPlayer.Character.Humanoid
+end
+
+function cameramap()
+	while wait() do
+	local pos = part.Position + Vector3.new(0,300, 0)
+	local lookAtPos = part.Position
+	camera.CameraSubject = part
+	camera.CameraType = Enum.CameraType.Scriptable
+	camera.CFrame = CFrame.lookAt(pos,lookAtPos)
+	if MinusPress then
+		break
+	end 
+	end
+end
+
+if MinusPress then
+	UserInputService.InputBegan:Connect(function(input, gameProcessedEvent)
+		if input.KeyCode == MinusPress then
+			defaultcamera()
+		end
+	end)
+end
+
+if EqualPress then
+	UserInputService.InputBegan:Connect(function(input, gameProcessedEvent)
+		if input.KeyCode == EqualPress then
+			cameramap()
+		end
+	end)
+end
