@@ -156,7 +156,7 @@ loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/
 
 --ESP Untitled
 
-https://raw.githubusercontent.com/jamesbond007juan/Tools/refs/heads/main/ESP-Untitled
+loadstring(game:HttpGet('https://raw.githubusercontent.com/jamesbond007juan/Tools/refs/heads/main/ESP-Untitled'))()
 
 --Blackhole-Self Void Fe Script
 
