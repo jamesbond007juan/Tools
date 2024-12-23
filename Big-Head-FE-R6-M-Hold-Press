@@ -1,0 +1,30 @@
+local Players = game.Players
+
+function bighead()
+	for i,v in pairs(Players:GetPlayers()) do
+		v.Character:WaitForChild("Head").Size = Vector3.new(10,10,10)
+		v.Character:WaitForChild("Head").CanCollide = false
+Players.LocalPlayer.Character:WaitForChild("Head").Size = Vector3.new(2,1,1)
+	end
+end
+
+function normalhead()
+	for i,v in pairs(Players:GetPlayers()) do
+		v.Character:WaitForChild("Head").Size = Vector3.new(1, 1, 1)
+		v.Character:WaitForChild("Head").CanCollide = true
+	end
+end
+
+local UserInputSerive = game:GetService("UserInputService")
+
+UserInputSerive.InputBegan:Connect(function(input, gameProcessed)
+	if input.KeyCode == Enum.KeyCode.M then
+		bighead()
+	end
+end)
+
+UserInputSerive.InputEnded:Connect(function(input, gameProcessed)
+	if input.KeyCode == Enum.KeyCode.M then
+		normalhead()
+	end
+end)
