@@ -1,0 +1,254 @@
+-- Prison Life
+
+--Sniper Fe
+--[[
+by rqz					
+https://discord.com/invite/aEZpBEHgMT
+Script Moves: (USE A KEYBOARD SCRIPT IF MOVE REQUIRES A KEYBOARD KEY)
+- Z: Shoot
+- X: Jump Forward Shoot
+- C: Jump Backwards Shoot
+- V: Spam Shoot
+- B: Mortar Shoot
+- F: Dash]]
+
+--====================================--
+--           FDless Options           --
+--====================================--
+
+allowshiftlock = false --adds shiftlock to patchma rig
+ctrltp = true --adds control click tp
+placeholders = true --adds transparent parts showing your hats when you don't have real ones
+clickfling = true --adds click flinging regardless of attacks
+highlightflingtargets = true --highlight fling
+discharscripts = true --disable character scripts
+flingchangestate = true --fling with whole body
+hidedeatheffect = true --hides the red damage border when you die (respawn)
+respawntp = 0 --respawn tp mode 
+-- 0 - stay at spawn “Fastest respawn at spawn”
+-- 1 - randomtp close
+-- 2 - behind fake character 
+-- 3 - hide body  “Normal respawn at spawn and default”
+breakjointsmethod = 1 --breakjoints mode
+-- 1 - health+breakjoints (the most support)
+-- 2 - health or breakjoints
+-- 3 - breakjoints
+simrad = true --sets simulation radius
+
+--==========================================================================================================================--
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/GenesisFE/Genesis/main/Obfuscations/Sniper"))()
+
+--==========================================================================================================================--
+
+--Big Head FE R6 if lag switch wired
+
+local Players = game.Players
+
+function bighead()
+	for i,v in pairs(Players:GetPlayers()) do
+		print(v.Name)
+		v.Character:WaitForChild("Head").Size = Vector3.new(10,10,10)
+		v.Character:WaitForChild("Head").CanCollide = false
+		Players.LocalPlayer.Character:WaitForChild("Head").Size = Vector3.new(2,1,1)
+	end
+end
+
+function normalhead()
+	for i,v in pairs(Players:GetPlayers()) do
+		print(v.Name)
+		v.Character:WaitForChild("Head").Size = Vector3.new(2,1,1)
+		v.Character:WaitForChild("Head").CanCollide = true
+	end
+end
+
+local EPress =  Enum.KeyCode.E
+local QPress = Enum.KeyCode.Q
+local UserInputService = game:GetService("UserInputService")
+
+if EPress then
+	UserInputService.InputBegan:Connect(function(input, gameProcessedEvent)
+		if input.KeyCode == EPress then
+			bighead()
+		end
+	end)
+end
+
+if QPress then
+	UserInputService.InputBegan:Connect(function(input, gameProcessedEvent)
+		if input.KeyCode == QPress then
+			normalhead()
+		end
+	end)
+end
+
+--[[
+--Big Head FE R6 Hold Press
+
+local Players = game.Players
+
+function bighead()
+	for i,v in pairs(Players:GetPlayers()) do
+		v.Character:WaitForChild("Head").Size = Vector3.new(10,10,10)
+		v.Character:WaitForChild("Head").CanCollide = false
+Players.LocalPlayer.Character:WaitForChild("Head").Size = Vector3.new(2,1,1)
+	end
+end
+
+function normalhead()
+	for i,v in pairs(Players:GetPlayers()) do
+		v.Character:WaitForChild("Head").Size = Vector3.new(1, 1, 1)
+		v.Character:WaitForChild("Head").CanCollide = true
+	end
+end
+
+local UserInputSerive = game:GetService("UserInputService")
+
+UserInputSerive.InputBegan:Connect(function(input, gameProcessed)
+	if input.KeyCode == Enum.KeyCode.M then
+		bighead()
+	end
+end)
+
+UserInputSerive.InputEnded:Connect(function(input, gameProcessed)
+	if input.KeyCode == Enum.KeyCode.M then
+		normalhead()
+	end
+end)
+]]
+
+--PrizzLife
+Execution_Runtime = tick()
+PLadmin_Settings = {
+  DefaultPrefix = ","; --The default prefix for pladmin
+  JoinNotify = false; --Notify when a player joins
+  AutoRespawn = true; --Automatically loadcharacter when dying
+  AntiVoid = true; --Automatically teleport up when falling into void
+  AntiTase = true; --Prevents you from being tased (100% no getconnections used because its absolute garbage)
+  AntiArrest = true; --Prevents you from being arrested (100% no getconnections used because its absolute garbage)
+  AntiShoot = true; --Kills player who tries to shoot you (Will be delayed if you have shitty ping, *COUGH* PLDT Users)
+  AntiPunch = true; --Instantly kill players who try to punch you
+  AntiFling = true; --Prevent exploiters from flinging you
+  AntiShield = true; --stop pay2win people and bypass their shields
+  AntiBring = true; --Prevent other exploiter(s) from bringing you
+  SilentAim = false; --Makes you shoot without missing a t arget
+  AutoGuns = false; --Automatically get all guns
+  OldItemMethod = false; --Use teleport for getting items (USE THIS IF PRISON LIFE PATCHES THE TABLE METHOD)
+  Fullbright = true; --Enable fullbrightness
+  WhitelistRanked = false; --Automatically whitelist ranked players (DO NOT USE WHEN RANKING ALL PLAYERS)
+  RankedNukeCmds = true; --Allow ranked players to use nuke commands (Very annoying)
+  RankedMultiCmd = true; --Allow ranked players to use the arguments: "all, and team", EX: ?kill all
+  RankedOutput = true; --Chat the output commands of ranked players
+  WhisperToRanked = true; --Use whisper for outputing commands for ranked players
+};wait()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/elliexmln/PrizzLife/main/Source/release_v0.8.1.lua'))()
+
+
+ --PrisonWare v1.3:
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Denverrz/scripts/master/PRISONWARE_v1.3.txt"))();
+
+--Infinity Yield Dex
+
+loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+
+--ESP Untitled
+
+loadstring(game:HttpGet('https://raw.githubusercontent.com/jamesbond007juan/Tools/refs/heads/main/ESP-Untitled'))()
+
+--Blackhole-Self Void Fe Script
+
+loadstring(game:HttpGet('https://raw.githubusercontent.com/jamesbond007juan/Tools/refs/heads/main/Blackhole-Self-FE'))()
+
+local Players = game:GetService("Players")
+local char = Players.LocalPlayer.Character
+
+local teleportPart = Instance.new("Part",game:GetService("Workspace"))
+teleportPart.Position = Vector3.new(1, -1, 1)
+teleportPart.Anchored = true
+teleportPart.CanCollide = true
+teleportPart.Material = Enum.Material.Neon
+teleportPart.BrickColor = BrickColor.new("Really black")
+teleportPart.Name = "TeleportVoid"
+
+function teleport()
+	wait(3)
+	char:MoveTo(teleportPart.Position)
+end
+
+--teleport()
+
+local UserInputService = game:GetService("UserInputService")
+local Mouse = game:GetService("Players").LocalPlayer:GetMouse()
+local Folder = Instance.new("Folder", game:GetService("Workspace"))
+local Part = Instance.new("Part", Folder)
+local Attachment1 = Instance.new("Attachment", Part)
+Part.Anchored = true
+Part.CanCollide = false
+Part.Transparency = 1
+local Updated = Mouse.Hit + Vector3.new(0, 5, 0)
+local NetworkAccess = coroutine.create(function()
+	settings().Physics.AllowSleep = false
+	while game:GetService("RunService").RenderStepped:Wait() do
+		for _, Players in next, game:GetService("Players"):GetPlayers() do
+			if Players ~= game:GetService("Players").LocalPlayer then
+				Players.MaximumSimulationRadius = 0 
+				sethiddenproperty(Players, "SimulationRadius", 0) 
+			end 
+		end
+		game:GetService("Players").LocalPlayer.MaximumSimulationRadius = math.pow(math.huge,math.huge)
+		setsimulationradius(math.huge) 
+	end 
+end) 
+coroutine.resume(NetworkAccess)
+local function ForcePart(v)
+	if v:IsA("Part") and v.Anchored == false and v.Parent:FindFirstChild("Humanoid") == nil and v.Parent:FindFirstChild("Head") == nil and v.Name ~= "Handle" then
+		Mouse.TargetFilter = v
+		for _, x in next, v:GetChildren() do
+			if x:IsA("BodyAngularVelocity") or x:IsA("BodyForce") or x:IsA("BodyGyro") or x:IsA("BodyPosition") or x:IsA("BodyThrust") or x:IsA("BodyVelocity") or x:IsA("RocketPropulsion") then
+				x:Destroy()
+			end
+		end
+		if v:FindFirstChild("Attachment") then
+			v:FindFirstChild("Attachment"):Destroy()
+		end
+		if v:FindFirstChild("AlignPosition") then
+			v:FindFirstChild("AlignPosition"):Destroy()
+		end
+		if v:FindFirstChild("Torque") then
+			v:FindFirstChild("Torque"):Destroy()
+		end
+		v.CanCollide = false
+		local Torque = Instance.new("Torque", v)
+		Torque.Torque = Vector3.new(100000, 100000, 100000)
+		local AlignPosition = Instance.new("AlignPosition", v)
+		local Attachment2 = Instance.new("Attachment", v)
+		Torque.Attachment0 = Attachment2
+		AlignPosition.MaxForce = 9999999999999999
+		AlignPosition.MaxVelocity = math.huge
+		AlignPosition.Responsiveness = 200
+		AlignPosition.Attachment0 = Attachment2 
+		AlignPosition.Attachment1 = Attachment1
+	end
+end
+for _, v in next, game:GetService("Workspace"):GetDescendants() do
+	ForcePart(v)
+end
+game:GetService("Workspace").DescendantAdded:Connect(function(v)
+	ForcePart(v)
+end)
+
+local player = game:GetService("Players")
+local target
+
+Updated = teleportPart.Position + Vector3.new(0, 0, 0)
+		
+spawn(function()
+	while game:GetService("RunService").RenderStepped:Wait() do
+		Attachment1.WorldCFrame = Updated
+	end
+end)
+
+--Top Camera FE Loop
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/jamesbond007juan/Tools/refs/heads/main/Camera-Map-Prison-Life"))();
