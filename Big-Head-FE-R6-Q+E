@@ -1,0 +1,40 @@
+--Big Head FE R6 Q Press and E Press
+
+local Players = game.Players
+
+function bighead()
+	for i,v in pairs(Players:GetPlayers()) do
+		print(v.Name)
+		v.Character:WaitForChild("Head").Size = Vector3.new(10,10,10)
+		v.Character:WaitForChild("Head").CanCollide = false
+		Players.LocalPlayer.Character:WaitForChild("Head").Size = Vector3.new(2,1,1)
+	end
+end
+
+function normalhead()
+	for i,v in pairs(Players:GetPlayers()) do
+		print(v.Name)
+		v.Character:WaitForChild("Head").Size = Vector3.new(2,1,1)
+		v.Character:WaitForChild("Head").CanCollide = true
+	end
+end
+
+local EPress =  Enum.KeyCode.E
+local QPress = Enum.KeyCode.Q
+local UserInputService = game:GetService("UserInputService")
+
+if EPress then
+	UserInputService.InputBegan:Connect(function(input, gameProcessedEvent)
+		if input.KeyCode == EPress then
+			bighead()
+		end
+	end)
+end
+
+if QPress then
+	UserInputService.InputBegan:Connect(function(input, gameProcessedEvent)
+		if input.KeyCode == QPress then
+			normalhead()
+		end
+	end)
+end
