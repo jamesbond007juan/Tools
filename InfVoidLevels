@@ -1,3 +1,9 @@
+--Inf Void Levels 
+
+local infvoidlevel1 = false
+local infvoidlevel2 = true
+local infvoidlevel3 = false
+
 --InfVoid
 
 if infvoidlevel1 then
